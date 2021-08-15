@@ -15,16 +15,22 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {rel:"preconnect" , href: "https://fonts.googleapis.com"},
+      {rel:"preconnect" , href: "https://fonts.gstatic.com", crossorigin:true},
+      {rel:"stylesheet" , href: "https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap"},
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    "~/assets/main.scss",
+    '~/assets/custom.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/bootstrap.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -40,7 +46,24 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'bootstrap-vue/nuxt'
   ],
+
+  // specify module rules for css and scss
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
+
+  // use these settings to use custom css
+  bootstrapVue: {
+    bootstrapCSS: false,
+    icons: true,
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

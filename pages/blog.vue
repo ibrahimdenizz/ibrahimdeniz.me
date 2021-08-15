@@ -1,4 +1,4 @@
 <template>
-  <home-section />
+    <blog-section />
 </template>
 

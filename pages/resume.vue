@@ -1,4 +1,4 @@
 <template>
-  <home-section />
+    <resume-section />
 </template>
 

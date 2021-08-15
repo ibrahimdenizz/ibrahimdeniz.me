@@ -1,0 +1,3 @@
+<template>
+    <portfolio-section />
+</template>
