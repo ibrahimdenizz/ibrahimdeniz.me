@@ -7,32 +7,34 @@ export default {
   head: {
     title: 'ibrahimdeniz.me',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {rel:"preconnect" , href: "https://fonts.googleapis.com"},
-      {rel:"preconnect" , href: "https://fonts.gstatic.com", crossorigin:true},
-      {rel:"stylesheet" , href: "https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap"},
-    ]
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: true,
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    "~/assets/main.scss",
-    '~/assets/custom.scss'
-  ],
+  css: ['~/assets/main.scss', '~/assets/custom.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/bootstrap.js'
-  ],
+  plugins: ['~/plugins/bootstrap.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -47,7 +49,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
   ],
 
   // specify module rules for css and scss
@@ -70,6 +72,14 @@ export default {
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {},
+  serverMiddleware: [{ path: '/api', handler: '~/api/index.js' }],
+  env: {
+    NOTION_TOKEN: process.env.NOTION_TOKEN,
+    NOTION_RESUME_DESC_ID: process.env.NOTION_RESUME_DESC_ID,
+    NOTION_RESUME_INFO_ID: process.env.NOTION_RESUME_INFO_ID,
+    NOTION_RESUME_EXP_ID: process.env.NOTION_RESUME_EXP_ID,
+    NOTION_RESUME_EDU_ID: process.env.NOTION_RESUME_EDU_ID,
+    NOTION_RESUME_SKILLS_ID: process.env.NOTION_RESUME_SKILLS_ID,
+  },
 }

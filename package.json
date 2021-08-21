@@ -12,10 +12,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@notionhq/client": "^0.3.0",
     "@nuxtjs/axios": "^5.13.6",
+    "body-parser": "^1.19.0",
     "bootstrap": "^5.1.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.15.1",
+    "express": "^4.17.1",
     "node-sass": "^6.0.1",
     "nuxt": "^2.15.7",
     "sass-loader": "^10"
