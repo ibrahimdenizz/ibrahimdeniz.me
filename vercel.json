@@ -2,8 +2,8 @@
     "version": 2,
     "routes": [
       {
-        "src": "/api/resume/*",
-        "dest": "/api/index.js"
+        "src": "/api/resume/(.*)",
+        "dest": "api/index.js"
       }
     ],
     "builds": [
