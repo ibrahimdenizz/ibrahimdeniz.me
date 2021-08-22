@@ -2,7 +2,7 @@
     "version": 2,
     "routes": [
       {
-        "src": "/api/resume",
+        "src": "/api/resume/*",
         "dest": "/api/index.js"
       }
     ],
