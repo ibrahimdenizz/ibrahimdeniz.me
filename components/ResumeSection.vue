@@ -1,6 +1,6 @@
 <template>
   <section class="resume-section">
-    <resume-about :desc="desc" :personal-infos="personalInfos"></resume-about>
+    <resume-about></resume-about>
     <h3>Skills</h3>
   </section>
 </template>
