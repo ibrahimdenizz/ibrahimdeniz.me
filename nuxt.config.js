@@ -70,9 +70,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseUrl: process.env.VERCEL_URL
-      ? process.env.VERCEL_URL
-      : 'http://localhost:3000',
+    baseUrl: '/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
