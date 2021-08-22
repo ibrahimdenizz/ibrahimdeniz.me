@@ -85,7 +85,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-  serverMiddleware: [{ path: '/api', handler: '~/api/index.js' }],
+  serverMiddleware:
+    process.env.NODE_ENV === 'production'
+      ? []
+      : [{ path: '/api', handler: '~/api/index.js' }],
   env: {
     NOTION_TOKEN: process.env.NOTION_TOKEN,
     NOTION_RESUME_DESC_ID: process.env.NOTION_RESUME_DESC_ID,
