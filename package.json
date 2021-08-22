@@ -12,6 +12,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
     "@notionhq/client": "^0.3.0",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/vercel-builder": "^0.21.3",
