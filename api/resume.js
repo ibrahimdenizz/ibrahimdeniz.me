@@ -102,8 +102,3 @@ router.get('/skills', async (req, res) => {
 })
 
 module.exports = router
-/*
- https://www.notion.so/a9139408e10c42df980e8ba07fa47084?v=01b87ff06b8b4306969c3892253639f5
-
- 
-*/
