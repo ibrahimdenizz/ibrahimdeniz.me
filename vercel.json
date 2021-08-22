@@ -6,6 +6,8 @@
         "config": {
         }
       }
-    ]
+    ],
+    "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+    
   }
   
