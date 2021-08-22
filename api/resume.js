@@ -64,6 +64,12 @@ router.get('/experience', async (req, res) => {
       database_id: databaseId,
       filter: {
         or: [],
+        sorts: [
+          {
+            property: 'Sort',
+            direction: 'ascending',
+          },
+        ],
       },
     })
     const personalInfos = response.results.map((result) => {
@@ -88,6 +94,12 @@ router.get('/education', async (req, res) => {
       filter: {
         or: [],
       },
+      sorts: [
+        {
+          property: 'Sort',
+          direction: 'ascending',
+        },
+      ],
     })
     const personalInfos = response.results.map((result) => {
       return {
@@ -110,6 +122,12 @@ router.get('/skills', async (req, res) => {
       filter: {
         or: [],
       },
+      sorts: [
+        {
+          property: 'Sort',
+          direction: 'ascending',
+        },
+      ],
     })
     const personalInfos = response.results.map((result) => {
       return {
