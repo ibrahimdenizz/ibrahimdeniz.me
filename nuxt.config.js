@@ -71,18 +71,6 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
-  publicRuntimeConfig: {
-    axios: {
-      browserBaseURL: process.env.VERCEL_URL,
-    },
-  },
-
-  privateRuntimeConfig: {
-    axios: {
-      baseURL: process.env.VERCEL_URL,
-    },
-  },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   serverMiddleware: [{ path: '/api', handler: '~/api/index.js' }],
