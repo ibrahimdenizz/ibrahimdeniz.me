@@ -8,7 +8,7 @@
     ],
     "builds": [
       {
-        "src": "nuxt.config.ts",
+        "src": "nuxt.config.js",
         "use": "@nuxtjs/vercel-builder",
         "config": {
           "serverFiles": ["api/index.js"]
