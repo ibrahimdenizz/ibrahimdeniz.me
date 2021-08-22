@@ -1,4 +1,3 @@
 <template>
-    <resume-section />
+  <resume-section />
 </template>
-

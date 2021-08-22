@@ -1,4 +1,3 @@
 <template>
-    <contacts-section />
+  <contacts-section />
 </template>
-

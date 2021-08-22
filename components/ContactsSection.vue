@@ -1,26 +1,22 @@
 <template>
-<section class="contacts-section">
+  <section class="contacts-section">
     <div>
-        <h1>Contacts</h1>
+      <h1>Contacts</h1>
     </div>
-</section>
+  </section>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {}
 </script>
 
 <style lang="scss" scoped>
-
 .contacts-section {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
 }
-
 </style>

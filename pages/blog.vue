@@ -1,4 +1,3 @@
 <template>
-    <blog-section />
+  <blog-section />
 </template>
-
