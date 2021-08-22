@@ -1,6 +1,6 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
   buildDir: 'dist',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -85,10 +85,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-  serverMiddleware:
-    process.env.NODE_ENV === 'production'
-      ? []
-      : [{ path: '/api', handler: '~/api/index.js' }],
+  serverMiddleware: [{ path: '/api', handler: '~/api/index.js' }],
   env: {
     NOTION_TOKEN: process.env.NOTION_TOKEN,
     NOTION_RESUME_DESC_ID: process.env.NOTION_RESUME_DESC_ID,
