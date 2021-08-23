@@ -1,7 +1,7 @@
 <template>
   <section class="resume-section">
-    <resume-about></resume-about>
-    <h3>Skills</h3>
+    <resume-about />
+    <resume-skills />
   </section>
 </template>
 

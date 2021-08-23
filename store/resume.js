@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid'
 export const state = () => ({
   desc: '',
   personalInfos: [],
+  skills: [],
 })
 
 export const mutations = {
@@ -11,6 +12,9 @@ export const mutations = {
   },
   updatePersonalInfos: (state, data) => {
     state.personalInfos = data
+  },
+  updateSkills: (state, data) => {
+    state.skills = data
   },
 }
 
@@ -29,6 +33,16 @@ export const actions = {
         id: uuid(),
       }))
       commit('updatePersonalInfos', personalInfos)
+    } catch (error) {}
+  },
+  async getSkills({ commit }) {
+    try {
+      const response = await this.$axios.$get('api/resume/skills')
+      const skills = response.data.map((skill) => {
+        skill.id = uuid()
+        return skill
+      })
+      commit('updateSkills', skills)
     } catch (error) {}
   },
 }
