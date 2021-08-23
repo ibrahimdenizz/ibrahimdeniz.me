@@ -39,9 +39,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/bootstrap.js' },
-    { src: '~/plugins/fontawesome.js' },
-    { src: '~/plugins/getResumeDatas.server.js', mode: 'server' },
+    '~/plugins/bootstrap.js',
+    '~/plugins/fontawesome.js',
+    '~/plugins/getResumeDatas.server.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -73,7 +73,6 @@ export default {
   // use these settings to use custom css
   bootstrapVue: {
     bootstrapCSS: false,
-    icons: true,
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -83,7 +82,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
   serverMiddleware: [{ path: '/api', handler: '~/api/index.js' }],
+
   env: {
     NOTION_TOKEN: process.env.NOTION_TOKEN,
     NOTION_RESUME_DESC_ID: process.env.NOTION_RESUME_DESC_ID,
