@@ -131,8 +131,8 @@ router.get('/skills', async (req, res) => {
     })
     const personalInfos = response.results.map((result) => {
       return {
-        skillType: getTableTextProperty(result, 'SkillType', { title: true }),
-        skills: getTableSelectProperty(result, 'Skills'),
+        type: getTableTextProperty(result, 'Type', { title: true }),
+        tools: getTableSelectProperty(result, 'Tools'),
       }
     })
     res.json({ data: personalInfos })
