@@ -39,9 +39,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/bootstrap.js',
-    '~/plugins/fontawesome.js',
-    '~/plugins/getResumeDatas.server.js',
+    { src: '~/plugins/bootstrap.js' },
+    { src: '~/plugins/fontawesome.js' },
+    { src: '~/plugins/getResumeDatas.server.js', mode: 'server' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
