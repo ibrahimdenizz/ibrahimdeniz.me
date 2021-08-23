@@ -19,34 +19,13 @@
 </template>
 
 <script>
-import { v4 as uuid } from 'uuid'
-
 export default {
-  data() {
-    this.getDesc()
-    this.getPersonalInfos()
-    return {
-      desc: '',
-      personalInfos: [],
-      notionTest: {},
-    }
-  },
-  methods: {
-    async getDesc() {
-      try {
-        const response = await this.$axios.$get('api/resume/desc')
-
-        this.desc = response.data
-      } catch (error) {}
+  computed: {
+    desc() {
+      return this.$store.state.resume.desc
     },
-    async getPersonalInfos() {
-      try {
-        const response = await this.$axios.$get('api/resume/personal-info')
-        this.personalInfos = response.data.map((info) => ({
-          ...info,
-          id: uuid(),
-        }))
-      } catch (error) {}
+    personalInfos() {
+      return this.$store.state.resume.personalInfos
     },
   },
 }
