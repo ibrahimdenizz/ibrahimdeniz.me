@@ -28,21 +28,6 @@ export default {
       return this.$store.state.resume.personalInfos
     },
   },
-  mounted() {
-     this.updateState()
-  },
-  methods: {
-    async updateState() {
-      await Promise.all([
-        this.$store.dispatch('resume/getDesc'),
-        this.$store.dispatch('resume/getPersonalInfos'),
-        this.$store.dispatch('resume/getSkills'),
-
-      ])
-  
-    }
-  },
-  
 }
 </script>
 
