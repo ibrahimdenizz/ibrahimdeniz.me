@@ -27,8 +27,7 @@ router.get('/desc', async (req, res) => {
 
     const descText = getParagraphText(result)
 
-    res.setHeader('Cache-Control', 's-maxage=18000')
-    res.json({ data: descText })
+    res.status(200).json({ data: descText })
   } catch (error) {
     res.status(500).send({ error })
   }
@@ -46,8 +45,7 @@ router.get('/personal-info', async (req, res) => {
       }
     })
 
-    res.setHeader('Cache-Control', 's-maxage=18000')
-    res.json({ data: personalInfos })
+    res.status(200).json({ data: personalInfos })
   } catch (error) {
     res.status(500).send({ error })
   }
@@ -67,8 +65,7 @@ router.get('/experience', async (req, res) => {
       }
     })
 
-    res.setHeader('Cache-Control', 's-maxage=18000')
-    res.json({ data: personalInfos })
+    res.status(200).json({ data: personalInfos })
   } catch (error) {
     res.status(500).send({ error })
   }
@@ -87,8 +84,7 @@ router.get('/education', async (req, res) => {
       }
     })
 
-    res.setHeader('Cache-Control', 's-maxage=18000')
-    res.json({ data: personalInfos })
+    res.status(200).json({ data: personalInfos })
   } catch (error) {
     res.status(500).send({ error })
   }
@@ -106,8 +102,7 @@ router.get('/skills', async (req, res) => {
       }
     })
 
-    res.setHeader('Cache-Control', 's-maxage=18000')
-    res.json({ data: personalInfos })
+    res.status(200).json({ data: personalInfos })
   } catch (error) {
     res.status(500).send({ error })
   }
