@@ -1,30 +1,34 @@
 const router = require('express').Router()
 
-const { Client } = require('@notionhq/client')
 const {
   parseNotionId,
   getTableTextProperty,
   getTableSelectProperty,
+  getParagraphText,
 } = require('./utils/index.js')
+const {
+  getNotionBlockData,
+  getNotionTableData,
+} = require('./utils/notionQueries.js')
 
 const {
-  NOTION_TOKEN,
   NOTION_RESUME_DESC_ID,
   NOTION_RESUME_INFO_ID,
   NOTION_RESUME_EXP_ID,
   NOTION_RESUME_EDU_ID,
   NOTION_RESUME_SKILLS_ID,
 } = process.env
-const notion = new Client({ auth: NOTION_TOKEN })
 
 router.get('/desc', async (req, res) => {
   const blockId = parseNotionId(NOTION_RESUME_DESC_ID)
+
   try {
-    const response = await notion.blocks.retrieve({
-      block_id: blockId,
-    })
-    const result = response.paragraph.text[0].plain_text
-    res.json({ data: result })
+    const result = await getNotionBlockData(blockId)
+
+    const descText = getParagraphText(result)
+
+    res.setHeader('Cache-Control', 's-maxage=18000')
+    res.json({ data: descText })
   } catch (error) {
     res.status(500).send({ error })
   }
@@ -33,24 +37,16 @@ router.get('/desc', async (req, res) => {
 router.get('/personal-info', async (req, res) => {
   const databaseId = parseNotionId(NOTION_RESUME_INFO_ID)
   try {
-    const response = await notion.databases.query({
-      database_id: databaseId,
-      filter: {
-        or: [],
-      },
-      sorts: [
-        {
-          property: 'Sort',
-          direction: 'ascending',
-        },
-      ],
-    })
+    const response = await getNotionTableData(databaseId)
+
     const personalInfos = response.results.map((result) => {
       return {
-        type: result.properties?.Type?.title[0]?.plain_text || '',
-        value: result.properties?.Value?.rich_text[0]?.plain_text || '',
+        type: getTableTextProperty(result, 'Type', { title: true }),
+        value: getTableTextProperty(result, 'Value'),
       }
     })
+
+    res.setHeader('Cache-Control', 's-maxage=18000')
     res.json({ data: personalInfos })
   } catch (error) {
     res.status(500).send({ error })
@@ -60,18 +56,8 @@ router.get('/personal-info', async (req, res) => {
 router.get('/experience', async (req, res) => {
   const databaseId = parseNotionId(NOTION_RESUME_EXP_ID)
   try {
-    const response = await notion.databases.query({
-      database_id: databaseId,
-      filter: {
-        or: [],
-        sorts: [
-          {
-            property: 'Sort',
-            direction: 'ascending',
-          },
-        ],
-      },
-    })
+    const response = await getNotionTableData(databaseId)
+
     const personalInfos = response.results.map((result) => {
       return {
         where: getTableTextProperty(result, 'Where', { title: true }),
@@ -80,6 +66,8 @@ router.get('/experience', async (req, res) => {
         desc: getTableTextProperty(result, 'Description'),
       }
     })
+
+    res.setHeader('Cache-Control', 's-maxage=18000')
     res.json({ data: personalInfos })
   } catch (error) {
     res.status(500).send({ error })
@@ -89,18 +77,8 @@ router.get('/experience', async (req, res) => {
 router.get('/education', async (req, res) => {
   const databaseId = parseNotionId(NOTION_RESUME_EDU_ID)
   try {
-    const response = await notion.databases.query({
-      database_id: databaseId,
-      filter: {
-        or: [],
-      },
-      sorts: [
-        {
-          property: 'Sort',
-          direction: 'ascending',
-        },
-      ],
-    })
+    const response = await getNotionTableData(databaseId)
+
     const personalInfos = response.results.map((result) => {
       return {
         school: getTableTextProperty(result, 'School', { title: true }),
@@ -108,6 +86,8 @@ router.get('/education', async (req, res) => {
         time: getTableTextProperty(result, 'Time'),
       }
     })
+
+    res.setHeader('Cache-Control', 's-maxage=18000')
     res.json({ data: personalInfos })
   } catch (error) {
     res.status(500).send({ error })
@@ -117,24 +97,16 @@ router.get('/education', async (req, res) => {
 router.get('/skills', async (req, res) => {
   const databaseId = parseNotionId(NOTION_RESUME_SKILLS_ID)
   try {
-    const response = await notion.databases.query({
-      database_id: databaseId,
-      filter: {
-        or: [],
-      },
-      sorts: [
-        {
-          property: 'Sort',
-          direction: 'ascending',
-        },
-      ],
-    })
+    const response = await getNotionTableData(databaseId)
+
     const personalInfos = response.results.map((result) => {
       return {
         type: getTableTextProperty(result, 'Type', { title: true }),
         tools: getTableSelectProperty(result, 'Tools'),
       }
     })
+
+    res.setHeader('Cache-Control', 's-maxage=18000')
     res.json({ data: personalInfos })
   } catch (error) {
     res.status(500).send({ error })

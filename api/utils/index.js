@@ -20,8 +20,13 @@ function getTableSelectProperty(result, property) {
   )
 }
 
+function getParagraphText(result) {
+  return result?.paragraph?.text[0]?.plain_text || ''
+}
+
 module.exports = {
   parseNotionId,
   getTableTextProperty,
   getTableSelectProperty,
+  getParagraphText,
 }
