@@ -1,12 +1,14 @@
 <template>
   <div>
     <h3>Skills</h3>
-    <div v-for="skill in skills" :key="skill.id" class="skills-wrapper">
-      <p>{{ skill.type }}</p>
-      <div class="tools">
-        <span v-for="tool in skill.tools" :key="tool" class="skill">{{
-          tool
-        }}</span>
+    <div class="container">
+      <div v-for="skill in skills" :key="skill.id" class="skills-wrapper">
+        <p class="skill-type">{{ skill.type }}</p>
+        <div class="tools">
+          <div v-for="tool in skill.tools" :key="tool" class="skill">
+            {{ tool }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -23,14 +25,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.skill {
-  margin-right: 30px;
+.container {
+  display: flex;
+  flex: 0 0 33%;
 }
+
 .skills-wrapper {
   margin: 15px 0 15px 15px;
 }
 
-.skills-wrapper p {
+.skill-type {
   font-size: 24px;
+  color: #f26b38;
+}
+
+.tools {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.skill {
+  margin: 0 5px 30px 0;
+  flex: 0 0 30%;
+}
+@media screen and (max-width: 900px) {
+  .skill {
+    margin-bottom: 10px;
+  }
+
+  .container {
+    display: inline-block;
+  }
 }
 </style>

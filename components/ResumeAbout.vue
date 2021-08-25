@@ -2,14 +2,15 @@
   <div>
     <h3>About Me</h3>
     <div class="about-me">
-      <div>
+      <div class="image">
         <img src="/me.jpg" alt="my picture" width="100" height="100" />
       </div>
       <div>
         <p>{{ desc }}</p>
         <div class="personal-infos">
           <p v-for="personalInfo in personalInfos" :key="personalInfo.id">
-            <span>{{ personalInfo.type }}: </span> {{ personalInfo.value }}
+            <span class="info-type">{{ personalInfo.type }}: </span>
+            <span>{{ personalInfo.value }}</span>
           </p>
         </div>
         <b-button class="download-cv">Download CV</b-button>
@@ -41,18 +42,21 @@ export default {
   margin: 0 20px 0 0;
 }
 
-.personal-infos,
-.personal-infos p {
+.personal-infos {
   display: flex;
   flex-wrap: wrap;
-  flex: 33%;
+
+  & p {
+    display: flex;
+    flex: 0 0 48%;
+  }
 }
 
 .personal-infos p {
   margin: 10px 10px 0 0;
 }
 
-.personal-infos p span {
+.personal-infos p .info-type {
   color: #f26b38;
   margin-right: 10px;
 }
@@ -65,5 +69,26 @@ export default {
 
 .download-cv:hover {
   background-color: darken(#f26b38, 10);
+}
+
+@media screen and (max-width: 900px) {
+  h3 {
+    text-align: center;
+  }
+  .about-me {
+    display: inline-block;
+    text-align: center;
+  }
+  .image {
+    margin-bottom: 30px;
+  }
+
+  .personal-infos {
+    & p {
+      display: block;
+      flex: 0 0 100%;
+      text-align: left;
+    }
+  }
 }
 </style>

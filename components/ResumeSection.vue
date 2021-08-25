@@ -17,4 +17,11 @@ export default {}
   position: relative;
   height: 100vh;
 }
+
+@media screen and (max-width: 900px) {
+  .resume-section {
+    margin: 0 30px;
+    padding-top: 20%;
+  }
+}
 </style>

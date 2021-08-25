@@ -38,19 +38,21 @@ header {
 
 ul {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   justify-content: right;
   margin: 0;
+  padding: 0;
 }
 
 li {
   list-style: none;
+  margin-right: 50px;
 }
 
 a {
   font-size: 18px;
   font-weight: 500;
-  margin-left: 50px;
   text-align: right;
   margin-bottom: 0;
   color: #363636;
@@ -71,8 +73,21 @@ a:visited {
 li a:hover {
   color: #f26b38;
 }
-
 nav {
   padding: 30px 100px;
+}
+@media screen and (max-width: 900px) {
+  nav {
+    padding: 20px 15px 0 15px;
+  }
+  header {
+    text-align: left;
+  }
+  ul {
+    justify-content: left;
+  }
+  li {
+    margin-right: 7px;
+  }
 }
 </style>
