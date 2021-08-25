@@ -20,6 +20,10 @@ function getTableSelectProperty(result, property) {
   )
 }
 
+function getTableCheckboxProperty(result, property) {
+  return result.properties?.[property]?.checkbox || false
+}
+
 function getParagraphText(result) {
   return result?.paragraph?.text[0]?.plain_text || ''
 }
@@ -28,5 +32,6 @@ module.exports = {
   parseNotionId,
   getTableTextProperty,
   getTableSelectProperty,
+  getTableCheckboxProperty,
   getParagraphText,
 }

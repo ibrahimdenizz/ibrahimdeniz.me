@@ -5,6 +5,7 @@ const {
   getTableTextProperty,
   getTableSelectProperty,
   getParagraphText,
+  getTableCheckboxProperty,
 } = require('./utils/index.js')
 const {
   getNotionBlockData,
@@ -42,6 +43,7 @@ router.get('/personal-info', async (req, res) => {
       return {
         type: getTableTextProperty(result, 'Type', { title: true }),
         value: getTableTextProperty(result, 'Value'),
+        isLink: getTableCheckboxProperty(result, 'IsLink'),
       }
     })
 

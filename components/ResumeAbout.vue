@@ -10,7 +10,10 @@
         <div class="personal-infos">
           <p v-for="personalInfo in personalInfos" :key="personalInfo.id">
             <span class="info-type">{{ personalInfo.type }}: </span>
-            <span>{{ personalInfo.value }}</span>
+            <span v-if="!personalInfo.isLink">{{ personalInfo.value }}</span>
+            <a v-else :href="personalInfo.value" target="_blank">{{
+              personalInfo.value
+            }}</a>
           </p>
         </div>
         <b-button class="download-cv">Download CV</b-button>

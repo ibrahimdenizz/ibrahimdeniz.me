@@ -50,7 +50,7 @@ export default {
 }
 @media screen and (max-width: 900px) {
   .skill {
-    margin-bottom: 10px;
+    margin: 0 7px 10px 0;
   }
 
   .container {
