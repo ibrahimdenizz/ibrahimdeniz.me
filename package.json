@@ -12,12 +12,16 @@
     "test": "jest"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "@notionhq/client": "^0.3.0",
+=======
+    "@notionhq/client": "^0.3.1",
+>>>>>>> 78bcc5166a05e29050d6c4e4c55cd00c5dc822b1
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/vercel-builder": "^0.21.3",
     "body-parser": "^1.19.0",
