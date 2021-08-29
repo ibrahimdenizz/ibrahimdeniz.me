@@ -11,6 +11,8 @@ export default {
     this.$store.dispatch('resume/getDesc')
     this.$store.dispatch('resume/getPersonalInfos')
     this.$store.dispatch('resume/getSkills')
+    this.$store.dispatch('resume/getExperiences')
+    this.$store.dispatch('resume/getEducations')
   },
 }
 </script>

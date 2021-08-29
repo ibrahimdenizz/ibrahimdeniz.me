@@ -4,17 +4,25 @@ export const state = () => ({
   desc: '',
   personalInfos: [],
   skills: [],
+  experiences: [],
+  educations: [],
 })
 
 export const mutations = {
-  updateDesc: (state, data) => {
+  updateDesc(state, data) {
     state.desc = data
   },
-  updatePersonalInfos: (state, data) => {
+  updatePersonalInfos(state, data) {
     state.personalInfos = data
   },
-  updateSkills: (state, data) => {
+  updateSkills(state, data) {
     state.skills = data
+  },
+  updateExperiences(state, data) {
+    state.experiences = data
+  },
+  updateEducations(state, data) {
+    state.educations = data
   },
 }
 
@@ -43,6 +51,26 @@ export const actions = {
         return skill
       })
       commit('updateSkills', skills)
+    } catch (error) {}
+  },
+  async getExperiences({ commit }) {
+    try {
+      const response = await this.$axios.$get('api/resume/experience')
+      const experiences = response.data.map((experience) => {
+        experience.id = uuid()
+        return experience
+      })
+      commit('updateExperiences', experiences)
+    } catch (error) {}
+  },
+  async getEducations({ commit }) {
+    try {
+      const response = await this.$axios.$get('api/resume/education')
+      const educations = response.data.map((education) => {
+        education.id = uuid()
+        return education
+      })
+      commit('updateEducations', educations)
     } catch (error) {}
   },
 }
