@@ -12,21 +12,23 @@
     "test": "jest"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
     "@notionhq/client": "^0.3.0",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/vercel-builder": "^0.21.3",
     "body-parser": "^1.19.0",
-    "core-js": "^3.16.3",
-    "express": "^4.17.1",
-    "nuxt": "^2.15.7",
-    "uuid": "^8.3.2",
     "bootstrap": "^5.1.0",
     "bootstrap-vue": "^2.21.2",
+    "core-js": "^3.16.3",
+    "express": "^4.17.1",
+    "node-sass": "^6.0.1",
+    "nuxt": "^2.15.7",
     "sass-loader": "^10",
-    "node-sass": "^6.0.1", 
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/vue-fontawesome": "^2.0.2"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",

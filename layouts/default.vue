@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
     <app-navbar />
-    <nuxt />
+    <nuxt class="main" />
+    <app-footer />
   </div>
 </template>
 
@@ -16,3 +17,10 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.main {
+  position: relative;
+  height: 100vh;
+}
+</style>

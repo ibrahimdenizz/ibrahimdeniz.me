@@ -18,8 +18,6 @@ export default {}
   padding-top: 10%;
   max-width: 1000px;
   margin: 0 auto;
-  position: relative;
-  height: 100vh;
 }
 
 .about {

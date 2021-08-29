@@ -16,7 +16,5 @@ export default {}
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  height: 100vh;
 }
 </style>

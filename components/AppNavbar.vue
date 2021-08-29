@@ -30,7 +30,7 @@ export default {}
 header {
   position: fixed;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 100;
   text-align: right;
   background: #fff;
