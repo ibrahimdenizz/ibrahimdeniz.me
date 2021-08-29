@@ -16,7 +16,7 @@
         <font-awesome-icon :icon="['fab', 'github']" class="icon" />
       </a>
       <a
-        href="https://github.com/ibrahimdenizz"
+        href="https://www.linkedin.com/in/ibrahim-deniz"
         target="_blank"
         rel="noopener noreferrer"
       >

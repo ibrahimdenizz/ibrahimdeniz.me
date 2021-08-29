@@ -12,21 +12,10 @@
     "test": "jest"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-regular-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/vue-fontawesome": "^2.0.2",
-    "@notionhq/client": "^0.3.0",
-=======
     "@notionhq/client": "^0.3.1",
->>>>>>> 78bcc5166a05e29050d6c4e4c55cd00c5dc822b1
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/vercel-builder": "^0.21.3",
-    "body-parser": "^1.19.0",
-    "bootstrap": "^5.1.0",
-    "bootstrap-vue": "^2.21.2",
+    "body-parser": "^1.19.0", 
     "core-js": "^3.16.3",
     "express": "^4.17.1",
     "node-sass": "^6.0.1",
@@ -35,6 +24,13 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "bootstrap": "^5.1.0",
+    "bootstrap-vue": "^2.21.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
     "@babel/eslint-parser": "^7.14.7",
     "@nuxtjs/eslint-config": "^6.0.1",
     "@nuxtjs/eslint-module": "^3.0.2",
