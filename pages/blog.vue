@@ -1,3 +1,3 @@
 <template>
-  <blog-section />
+  <blog-section class="main" />
 </template>

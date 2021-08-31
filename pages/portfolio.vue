@@ -1,3 +1,3 @@
 <template>
-  <portfolio-section />
+  <portfolio-section class="main" />
 </template>

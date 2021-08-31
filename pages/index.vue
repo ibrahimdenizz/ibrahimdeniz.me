@@ -1,3 +1,3 @@
 <template>
-  <home-section />
+  <home-section class="main" />
 </template>
