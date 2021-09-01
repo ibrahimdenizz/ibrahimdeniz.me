@@ -1,20 +1,30 @@
 const router = require('express').Router()
 
-const { getTableTextProperty, getTableImageProperty } = require('./utils')
+const {
+  getTableTextProperty,
+  getTableImageProperty,
+  parseNotionId,
+} = require('./utils')
 const { getNotionTableData } = require('./utils/notionQueries')
 
 const { NOTION_PORTFOLIO_PROJECT_ID } = process.env
 
 router.get('/projects', async (req, res) => {
-  const { results } = await getNotionTableData(NOTION_PORTFOLIO_PROJECT_ID)
+  const databaseId = parseNotionId(NOTION_PORTFOLIO_PROJECT_ID)
+  try {
+    const { results } = await getNotionTableData(databaseId)
 
-  const projects = results.map((result) => ({
-    name: getTableTextProperty(result, 'ProjectName', { title: true }),
-    githubLink: getTableTextProperty(result, 'GithubLink'),
-    liveLink: getTableTextProperty(result, 'LiveLink'),
-    image: getTableImageProperty(result, 'Image'),
-  }))
-  return res.json(projects)
+    const projects = results.map((result) => ({
+      name: getTableTextProperty(result, 'ProjectName', { title: true }),
+      desc: getTableTextProperty(result, 'Desc'),
+      githubLink: getTableTextProperty(result, 'GithubLink'),
+      liveLink: getTableTextProperty(result, 'LiveLink'),
+      image: getTableImageProperty(result, 'Image'),
+    }))
+    return res.status(200).json({ data: projects })
+  } catch (error) {
+    return res.status(500).json({ error })
+  }
 })
 
 module.exports = router

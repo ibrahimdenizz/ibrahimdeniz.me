@@ -1,20 +1,27 @@
 <template>
   <section class="portfolio-section">
-    <div>
-      <h1>Portfolio</h1>
-    </div>
+    <portfolio-project
+      v-for="project in projects"
+      :key="project.id"
+      :project="project"
+    />
   </section>
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    projects() {
+      return this.$store.state.portfolio.projects
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
 .portfolio-section {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: 10%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 </style>
