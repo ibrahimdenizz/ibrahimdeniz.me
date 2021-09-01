@@ -39,7 +39,12 @@
           />
         </b-form-group>
 
-        <b-button class="contact-button" type="submit">Send Message</b-button>
+        <b-button
+          class="contact-button"
+          type="submit"
+          :disabled="!doSendMessage ? false : true"
+          >Send Message</b-button
+        >
       </b-form>
     </div>
   </section>
@@ -53,17 +58,20 @@ export default {
       email: '',
       subject: '',
       message: '',
+      doSendMessage: false,
     }
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
       const { fullName, email, subject, message } = this
-      this.$axios.post('api/contact/send-message', {
+      this.doSendMessage = true
+      await this.$axios.post('api/contact/send-message', {
         fullName,
         email,
         subject,
         message,
       })
+      this.doSendMessage = false
     },
   },
 }
