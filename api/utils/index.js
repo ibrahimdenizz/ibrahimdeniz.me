@@ -24,8 +24,12 @@ function getTableCheckboxProperty(result, property) {
   return result.properties?.[property]?.checkbox || false
 }
 
+function getTableImageProperty(result, property) {
+  return result.properties?.[property]?.files[0]?.file?.url || false
+}
+
 function getParagraphText(result) {
-  return result?.paragraph?.text[0]?.plain_text || ''
+  return result.paragraph?.text[0]?.plain_text || ''
 }
 
 module.exports = {
@@ -33,5 +37,6 @@ module.exports = {
   getTableTextProperty,
   getTableSelectProperty,
   getTableCheckboxProperty,
+  getTableImageProperty,
   getParagraphText,
 }
