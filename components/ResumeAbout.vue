@@ -16,7 +16,12 @@
             }}</a>
           </p>
         </div>
-        <b-button class="download-cv">Download CV</b-button>
+        <a :href="downloadUrl" target="_blank" rel="noopener noreferrer">
+          <b-button v-if="!downloadUrl" class="download-cv" disabled="disabled"
+            >Download Resume</b-button
+          >
+          <b-button v-else class="download-cv">Download Resume</b-button>
+        </a>
       </div>
     </div>
   </div>
@@ -30,6 +35,9 @@ export default {
     },
     personalInfos() {
       return this.$store.state.resume.personalInfos
+    },
+    downloadUrl() {
+      return this.$store.state.resume.downloadUrl
     },
   },
 }

@@ -4,8 +4,9 @@ const {
   parseNotionId,
   getTableTextProperty,
   getTableSelectProperty,
-  getParagraphText,
+  getBlockText,
   getTableCheckboxProperty,
+  getBlockFile,
 } = require('./utils/index.js')
 const {
   getNotionBlockData,
@@ -26,7 +27,7 @@ router.get('/desc', async (req, res) => {
   try {
     const result = await getNotionBlockData(blockId)
 
-    const descText = getParagraphText(result)
+    const descText = getBlockText(result)
 
     res.status(200).json({ data: descText })
   } catch (error) {
@@ -109,5 +110,21 @@ router.get('/skills', async (req, res) => {
     res.status(500).send({ error })
   }
 })
+
+router.get('/download', async (req, res) => {
+  const blockId = parseNotionId('dd0aba45b601413fb1c544d6ba68d565')
+
+  try {
+    const result = await getNotionBlockData(blockId)
+
+    return res.status(200).json({
+      data: {
+        url: getBlockFile(result),
+      },
+    })
+  } catch (error) {}
+})
+
+// https://www.notion.so/Resume-fed9678a41404a66880cc72ffbeb6242#dd0aba45b601413fb1c544d6ba68d565
 
 module.exports = router

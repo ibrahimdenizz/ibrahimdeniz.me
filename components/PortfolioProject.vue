@@ -7,21 +7,15 @@
       <h1>{{ project.name }}</h1>
       <p>{{ project.desc }}</p>
       <div class="buttons">
-        <a
-          :href="project.githubLink"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn"
-        >
-          Github Repo
+        <a :href="project.githubLink" target="_blank" rel="noopener noreferrer">
+          <b-button v-if="project.githubLink" class="btn">
+            Github Repo
+          </b-button>
+          <b-button v-else class="btn" disabled> Github Repo </b-button>
         </a>
-        <a
-          :href="project.liveCode"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn"
-        >
-          Live Demo
+        <a :href="project.liveLink" target="_blank" rel="noopener noreferrer">
+          <b-button v-if="project.liveLink" class="btn"> Live Demo </b-button>
+          <b-button v-else class="btn" disabled> Live Demo </b-button>
         </a>
       </div>
     </div>

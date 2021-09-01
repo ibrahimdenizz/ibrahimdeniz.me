@@ -6,6 +6,7 @@ export const state = () => ({
   skills: [],
   experiences: [],
   educations: [],
+  downloadUrl: '',
 })
 
 export const mutations = {
@@ -23,6 +24,9 @@ export const mutations = {
   },
   updateEducations(state, data) {
     state.educations = data
+  },
+  updateDownloadUrl(state, data) {
+    state.downloadUrl = data
   },
 }
 
@@ -71,6 +75,12 @@ export const actions = {
         return education
       })
       commit('updateEducations', educations)
+    } catch (error) {}
+  },
+  async getDownloadUrl({ commit }) {
+    try {
+      const response = await this.$axios.$get('api/resume/download')
+      commit('updateDownloadUrl', response.data.url)
     } catch (error) {}
   },
 }

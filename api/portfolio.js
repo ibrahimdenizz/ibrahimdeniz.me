@@ -2,7 +2,7 @@ const router = require('express').Router()
 
 const {
   getTableTextProperty,
-  getTableImageProperty,
+  getTableFileProperty,
   parseNotionId,
 } = require('./utils')
 const { getNotionTableData } = require('./utils/notionQueries')
@@ -19,7 +19,7 @@ router.get('/projects', async (req, res) => {
       desc: getTableTextProperty(result, 'Desc'),
       githubLink: getTableTextProperty(result, 'GithubLink'),
       liveLink: getTableTextProperty(result, 'LiveLink'),
-      image: getTableImageProperty(result, 'Image'),
+      image: getTableFileProperty(result, 'Image'),
     }))
     return res.status(200).json({ data: projects })
   } catch (error) {
