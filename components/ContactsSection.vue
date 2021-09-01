@@ -2,9 +2,10 @@
   <section class="contacts-section">
     <div>
       <h3>Contact Form</h3>
-      <b-form>
+      <b-form @submit.prevent="onSubmit()">
         <b-form-group>
           <b-form-input
+            v-model="fullName"
             type="text"
             placeholder="Full Name"
             class="contact-form-input"
@@ -13,6 +14,7 @@
 
         <b-form-group>
           <b-form-input
+            v-model="email"
             type="text"
             placeholder="Email Address"
             class="contact-form-input"
@@ -21,6 +23,7 @@
 
         <b-form-group>
           <b-form-input
+            v-model="subject"
             type="text"
             placeholder="Subject"
             class="contact-form-input"
@@ -29,22 +32,41 @@
 
         <b-form-group>
           <b-form-textarea
+            v-model="message"
             type="textarea"
             placeholder="Your Message"
             class="contact-form-input contact-form-textare"
           />
         </b-form-group>
 
-        <b-button class="contact-button" type="submit" disabled
-          >Send Message</b-button
-        >
+        <b-button class="contact-button" type="submit">Send Message</b-button>
       </b-form>
     </div>
   </section>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      fullName: '',
+      email: '',
+      subject: '',
+      message: '',
+    }
+  },
+  methods: {
+    onSubmit() {
+      const { fullName, email, subject, message } = this
+      this.$axios.post('api/contact/send-message', {
+        fullName,
+        email,
+        subject,
+        message,
+      })
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
