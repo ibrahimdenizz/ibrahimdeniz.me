@@ -62,4 +62,20 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  .project {
+    display: block;
+
+    img {
+      width: 300px;
+      height: 200px;
+    }
+
+    div {
+      margin-right: 0;
+      margin: 4rem 0;
+    }
+  }
+}
 </style>

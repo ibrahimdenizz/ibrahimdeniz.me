@@ -24,4 +24,10 @@ export default {
   max-width: 1000px;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 900px) {
+  .portfolio-section {
+    margin: 0 2rem;
+  }
+}
 </style>

@@ -109,4 +109,12 @@ export default {
     margin-top: 2rem;
   }
 }
+
+@media screen and (max-width: 900px) {
+  .contacts-section {
+    div {
+      margin: 2rem 2rem 0 2rem;
+    }
+  }
+}
 </style>
