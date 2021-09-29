@@ -1596,13 +1596,13 @@
   dependencies:
     http-proxy-middleware "^1.0.6"
 
-"@nuxtjs/vercel-builder@^0.22.0":
-  version "0.22.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/vercel-builder/-/vercel-builder-0.22.0.tgz#24da5ce5e5ab3ef1f9b5a65886fdd5f4c95e622f"
-  integrity sha512-235mERHsagi+3M+0HO9RqOXDAsESbrcf4inueva4ycC3W4sxshBBMweUAoVIy85yCOXxQAJoyQShOfxymQtG1Q==
+"@nuxtjs/vercel-builder@^0.22.1":
+  version "0.22.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/vercel-builder/-/vercel-builder-0.22.1.tgz#8128e22dd720a2da25737a8455b30fceb61a9ae0"
+  integrity sha512-mbf4ErZnFutAV/LOOQ/uh/wHvN8VNuewgAkSIjx5bC2ALNSZx2nvLpdkj3YYaZVlq0WLvxuuZtzRLRXYW7qqfg==
   dependencies:
     "@nuxtjs/web-vitals" "^0.1.8"
-    "@vercel/build-utils" "2.12.2"
+    "@vercel/build-utils" "2.11.0"
     "@vercel/node-bridge" "2.1.0"
     consola "2.15.3"
     execa "^5.1.1"
@@ -1889,10 +1889,10 @@
     "@typescript-eslint/types" "4.29.1"
     eslint-visitor-keys "^2.0.0"
 
-"@vercel/build-utils@2.12.2":
-  version "2.12.2"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-2.12.2.tgz#285a3bb0b78864fb6f44478257bd275c57aa8651"
-  integrity sha512-KbSgG2ZCVXhUsdbnpv6gC7buygd31jaKiKhrd4Lzv1NwjnoeDZAXlm4hzvSPYHVtCY2jirKJWP2rFtMW8iAh9g==
+"@vercel/build-utils@2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-2.11.0.tgz#bedd4dd248a1536e2e803a0a68315a576a0bb539"
+  integrity sha512-kbDvtZsWUZCT9h7jhyRfJ8F57Nad5E0T6QtH82vBhzvCp44TohZk+ncZGoaQO2C+6kEhGFTyauQ0ROv1ayX2jA==
 
 "@vercel/node-bridge@2.1.0":
   version "2.1.0"
